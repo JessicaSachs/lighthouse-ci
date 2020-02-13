@@ -5,6 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - name: Build project
+        run: |
+            npm ci
+            npm run build --mode=production
       - name: Run Lighthouse against a static dist dir
         uses: treosh/lighthouse-ci-action@v2
         with:
